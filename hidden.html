@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Demo</title>
+    </head>
+ 
+<body>
+
+<h2>Hidden things by Nandini Kandi</h2>
+
+
+<form>
+    <label for="form1_secret">Enter the secret word</label>
+    <input type ="password" id="form1_secret" name="form1_secret" value=Secret> <br>
+
+    <label for="form1_guess">Enter a guess </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">Results will be displayed here </p>
+
+<script> 
+    correct=0
+    wrong=0
+function processGuess (){
+    secret = document.getElementById("form1_secret").value
+    guess = document.getElementById("form1_guess").value
+    out = document.getElementById("result")
+    if(secret==guess)
+    {
+        correct=correct+1
+        alert("Congratulations!")
+    } 
+    else
+    {
+        wrong=wrong+1
+        alert("Sorry!")
+    }
+    out.innerHTML= "corrects: "+correct +" wrongs: " +wrong
+}
+</script>
+
+</body>
+</html> 
