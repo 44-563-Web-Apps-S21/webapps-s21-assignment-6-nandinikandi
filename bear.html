@@ -3,38 +3,81 @@
 
 <head>
     <title>CheckBox Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-    <h2>Kandi Nandini builds a bear</h2>
-
-    <form>
-        <input type="checkbox" id="cb1_hat" name="topping1" value="hat">
-        <label for="cb1_hat">hat</label></br>
-
-        <input type="checkbox" id="cb1_scarf" name="topping2" value="scarf">
-        <label for="cb1_scarf">scarfs</label></br>
-
-        <input type="checkbox" id="cb1_shirt" name="topping3" value="shirt">
-        <label for="cb1_shirt">shirts</label></br>
+    <div class="container">
+        <h2>Kandi Nandini builds a bear</h2>
         <br>
-        <input type="button" onclick="startbear()" value="Start a bear">
-    </form>
-    <br><br>
-    <form>
-        <label for="form1_property">Enter a property </label>
-        <input type="text" id="form1_property" name="form1_property" value=color> <br>
+        <form>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" id="cb1_hat" name="topping1" value="hat">
+                        </div>
+                    </div>
+                    <label for="cb1_hat" class="form-control">hat</label></br>
+                </div>
 
-        <label for="form1_value">Enter a value </label>
-        <input type="text" id="form1_value" name="form1_value"> <br><br>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" id="cb1_scarf" name="topping2" value="scarf">
+                        </div>
+                    </div>
+                    <label for="cb1_scarf" class="form-control">scarfs</label></br>
+                </div>
 
-        <input type="button" onclick="updatebear()" value="Update the bear">
-    </form>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" id="cb1_shirt" name="topping3" value="shirt">
+                        </div>
+                    </div>
+                    <label for="cb1_shirt" class="form-control">shirts</label></br>
+                </div>
+                <br>
+                <input type="button" class="btn btn-primary" onclick="startbear()" value="Start a bear">
+            </div>
+        </form>
 
+        <br><br>
 
-    <p id="result">This text will be replaced </p>
+        <form>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="form1_property">Enter a property </label>
+                    </div>
+                    <input class="form-control" placeholder="Enter a property" type="text" id="form1_property"
+                        name="form1_property" value=color> <br>
+                </div>
 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="form1_value">Enter a value </label>
+                    </div>
+                    <input class="form-control" placeholder="Enter a value" type="text" id="form1_value"
+                        name="form1_value">
+                </div> <br>
+
+                <input type="button" class="btn btn-primary" onclick="updatebear()" value="Update the bear">
+            </div>
+        </form>
+
+        <br>
+
+        <p id="result">This text will be replaced </p>
+
+    </div>
     <script>
 
         my_bear = {};
@@ -57,7 +100,7 @@
 
         }
 
-        function updatebear(){
+        function updatebear() {
             property = document.getElementById("form1_property").value
             value = document.getElementById("form1_value").value
 

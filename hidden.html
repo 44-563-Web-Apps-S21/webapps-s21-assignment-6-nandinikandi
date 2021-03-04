@@ -1,70 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>JavaScript Demo</title>
-    </head>
- 
+
+<head>
+    <title>JavaScript Demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <body>
+    <br>
+    <div class="container">
+        <h2>Hidden things by Nandini Kandi</h2>
+        <br>
 
-<h2>Hidden things by Nandini Kandi</h2>
+        <form>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="form1_secret">Enter the secret word</label>
+                    </div>
+                    <input class="form-control" type="password" id="form1_secret" name="form1_secret" value=Secret> <br>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="form1_guess">Enter a guess </label>
+                    </div>
+                    <input class="form-control" type="text" id="form1_guess" name="form1_guess" autofocus>
+                </div> <br>
+
+                <input class="btn btn-primary" type="button" onclick="processGuess()" value="Check the guess">
+            </div>
+        </form>
 
 
-<form>
-    <label for="form1_secret">Enter the secret word</label>
-    <input type ="password" id="form1_secret" name="form1_secret" value=Secret> <br>
+        <p id="result" style="color: blue;">Results will be displayed here </p>
 
-    <label for="form1_guess">Enter a guess </label>
-    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+        <br>
+        <hr><br>
 
-    <input type="button" onclick="processGuess()" value="Check the guess">
-</form>
+        <div>
+            <img src="aloe.jpg" id="image" style="width: 200px; height: 200px;" onclick="rotateImage()">
+        </div>
 
+    </div>
+    <script>
+        correct = 0
+        wrong = 0
+        currentImage = 0
+        function processGuess() {
+            secret = document.getElementById("form1_secret").value
+            guess = document.getElementById("form1_guess").value
+            out = document.getElementById("result")
+            if (secret == guess) {
+                correct = correct + 1
+                alert("Congratulations!")
+            }
+            else {
+                wrong = wrong + 1
+                alert("Sorry!")
+            }
+            out.innerHTML = "corrects: " + correct + " wrongs: " + wrong
+        }
 
-<p id="result">Results will be displayed here </p>
+        function rotateImage() {
+            switch (currentImage) {
+                case 0: document.getElementById("image").src = "Dalea.jpg"
+                    currentImage = 1
+                    break
+                case 1: document.getElementById("image").src = "Kiwi.jpg"
+                    currentImage = 2
+                    break
+                case 2: document.getElementById("image").src = "aloe.jpg"
+                    currentImage = 0
+                    break
+            }
+        }
 
-<br><hr><br>
-
-<div>
-    <img src="aloe.jpg" id="image" style="width: 200px; height: 200px;" onclick="rotateImage()">
-</div>
-
-<script> 
-    correct=0
-    wrong=0
-    currentImage=0
-function processGuess (){
-    secret = document.getElementById("form1_secret").value
-    guess = document.getElementById("form1_guess").value
-    out = document.getElementById("result")
-    if(secret==guess)
-    {
-        correct=correct+1
-        alert("Congratulations!")
-    } 
-    else
-    {
-        wrong=wrong+1
-        alert("Sorry!")
-    }
-    out.innerHTML= "corrects: "+correct +" wrongs: " +wrong
-}
-
-function rotateImage(){
-    switch(currentImage)
-    {
-        case 0: document.getElementById("image").src = "Dalea.jpg"
-                currentImage=1
-                break
-        case 1: document.getElementById("image").src = "Kiwi.jpg"
-                currentImage=2
-                break
-        case 2: document.getElementById("image").src = "aloe.jpg"
-                currentImage=0
-                break
-    }
-}
-
-</script>
+    </script>
 
 </body>
-</html> 
+
+</html>
