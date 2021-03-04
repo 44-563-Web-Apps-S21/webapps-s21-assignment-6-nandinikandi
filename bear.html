@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>CheckBox Demo</title>
+ </head>
+<body>
+
+<h2>Kandi Nandini builds a bear</h2>
+
+<form>
+    <input type="checkbox" id="cb1_hat" name="topping1" value="hat">
+    <label for="cb1_hat">hat</label></br>
+  
+    <input type="checkbox" id="cb1_scarf" name="topping2"  value="scarf">
+    <label for="cb1_scarf">scarfs</label></br>
+  
+    <input type="checkbox" id="cb1_shirt" name="topping3" value="shirt">
+    <label for="cb1_shirt">shirts</label></br>
+    <br>
+    <input type="button" onclick="startbear()" value="Start a bear">
+  </form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+my_bear = {};
+
+function startbear (){
+    console.log("In startbear()")
+    my_bear = {};
+    hat = document.getElementById("cb1_hat").checked
+    scarf = document.getElementById("cb1_scarf").checked
+    shirt = document.getElementById("cb1_shirt").checked
+
+    my_bear = {
+        hat: hat,
+        scarf: scarf,
+        shirt: shirt
+    };
+    
+    out = document.getElementById("result")
+    out.innerHTML = JSON.stringify(my_bear)
+
+}
+</script>
+
+</body>
+</html> 
