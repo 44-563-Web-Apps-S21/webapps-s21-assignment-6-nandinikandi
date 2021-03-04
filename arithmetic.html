@@ -19,22 +19,69 @@
         <input type="button" onclick="permutations()" value="Compute">
     </form>
 
-
     <p id="result">first permute second is product </p>
+
+    <form>
+        <input type="radio" id="rg1_plus" name="sign" value="plus" onclick="processRadio()" checked>
+        <label for="rg1_plus">+</label></br>
+
+        <input type="radio" id="rg1_minus" name="sign" value="minus" onclick="processRadio()">
+        <label for="rg1_minus">-</label></br>
+
+        <input type="radio" id="rg1_times" name="sign" value="times" onclick="processRadio()">
+        <label for="rg1_times">*</label></br>
+
+        <input type="radio" id="rg1_divide" name="sign" value="divide" onclick="processRadio()">
+        <label for="rg1_divide">/</label></br>
+    </form>
+
+    <p id="result1">This text will be replaced </p>
+
+
 
     <script>
 
         function permutations() {
+            console.log("In permutations()")
             num1 = document.getElementById("form1_num1").value
             num2 = document.getElementById("form1_num2").value
             product = 1
             out = document.getElementById("result")
             var i;
-            for (i = num1; i >= (num1-num2+1); i--) {
-                product = product*i;
+            for (i = num1; i >= (num1 - num2 + 1); i--) {
+                product = product * i;
             }
 
             out.innerHTML = num1 + " permute " + num2 + " is " + product;
+        }
+
+        function processRadio() {
+            console.log("In processRadio()")
+            var num1 = parseInt(document.getElementById("form1_num1").value)
+            var num2 = parseInt(document.getElementById("form1_num2").value)
+            out = document.getElementById("result1")
+
+            operation = document.getElementById("rg1_plus").checked
+            if (operation) {
+                // out.innerHTML = num1 + document.getElementById("rg1_plus").value + num2
+                out.innerHTML = num1 + " + " + num2 + " is " + (num1 + num2)
+            }
+            operation = document.getElementById("rg1_minus").checked
+            if (operation) {
+                // out.innerHTML = num1 + document.getElementById("rg1_minus").value + num2
+                out.innerHTML = num1 + " - " + num2 + " is " + (num1 - num2)
+            }
+            operation = document.getElementById("rg1_times").checked
+            if (operation) {
+                // out.innerHTML = num1 + document.getElementById("rg1_times").value + num2
+                out.innerHTML = num1 + " * " + num2 + " is " + (num1 * num2)
+            }
+            operation = document.getElementById("rg1_divide").checked
+            if (operation) {
+                // out.innerHTML = num1 + document.getElementById("rg1_divide").value + num2
+                out.innerHTML = num1 + " / " + num2 + " is " + (num1 / num2)
+            }
+
         }
 
     </script>
